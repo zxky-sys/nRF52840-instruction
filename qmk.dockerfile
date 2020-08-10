@@ -33,7 +33,9 @@ RUN /bin/bash -c "set -o pipefail && \
 
 # Install python packages
 RUN pip3 install nose2 qmk
-RUN git clone --recurse-submodules -b nrf52 https://github.com/sekigon-gonnoc/qmk_firmware.git
+
 RUN wget https://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v15.x.x/nRF5_SDK_15.0.0_a53641a.zip && \
     unzip nRF5_SDK_15.0.0_a53641a.zip && rm nRF5_SDK_15.0.0_a53641a.zip
-ENV QMK_HOME /qmk_firmware
+RUN git clone https://github.com/luantty2/qmk.git
+ENV QMK_HOME /qmk
+RUN git clone https://github.com/zxky-sys/nRF52840-instruction.git
