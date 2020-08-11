@@ -38,4 +38,5 @@ RUN wget https://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v15.x.x/nRF5_SDK_15.
     unzip nRF5_SDK_15.0.0_a53641a.zip && rm nRF5_SDK_15.0.0_a53641a.zip
 RUN git clone https://github.com/luantty2/qmk.git
 ENV QMK_HOME /qmk
-RUN git clone https://github.com/zxky-sys/nRF52840-instruction.git && cp -r /nRF52840-instruction/keyboards/candy_ble /qmk/keyboards/ && rm -rf /nRF52840-instruction
+RUN git clone https://github.com/zxky-sys/nRF52840-instruction.git && cp -r /nRF52840-instruction/keyboards/ /qmk/keyboards/ && rm -rf /nRF52840-instruction
+RUN cp /qmk/keyboards/candy_ble/uf2conv.py /qmk
